@@ -1,0 +1,40 @@
+datasource db {
+    provider = "postgresql"
+    url      = env("connectionString")
+}
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+model Users {
+    id       String    @unique @default(uuid())
+    username String    @unique
+    password String
+    role     Role      @default(BASIC)
+    uploads  Uploads[]
+}
+
+model Uploads {
+    id           String   @unique @default(uuid())
+    filename     String
+    originalName String
+    description  String?
+    size         BigInt
+    path         String
+    uploadedAt   DateTime @default(now())
+    uploader     Users    @relation(fields: [uploaderId], references: [id])
+    uploaderId   String
+}
+
+model Session {
+    id        String   @id
+    sid       String   @unique
+    data      String
+    expiresAt DateTime
+}
+
+enum Role {
+    BASIC
+    ADMIN
+}

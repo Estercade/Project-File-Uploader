@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%- title %></title>
+</head>
+<body>
+    <%- include("partials/navbar") %>
+    <form action="/upload" enctype="multipart/form-data" method="POST">
+        <div class="uploadFormItem">
+            <label for="uploadedFile">File:</label>
+            <input type="file" class="uploadedFile" name="uploadedFile" required>
+        </div>
+        <div class="uploadFormItem">
+            <label for="fileDescription">Description:</label>
+            <textarea name="fileDescription" id="fileDescription"></textarea>
+        </div>
+        <button>Upload</button>
+    </form>
+</body>
+</html>

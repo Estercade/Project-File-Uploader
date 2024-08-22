@@ -1,0 +1,12 @@
+<nav>
+    <ul>
+        <a href="/">Home</a>
+        <% if (!locals.user) { %>
+            <a href="/login">Log in</a>
+            <a href="/signup">Sign up</a>
+        <% } else { %>
+            <a href="/upload">Upload a file</a>
+            <a href="/logout">Log out</a>
+        <% } %>
+    </ul>
+</nav>
