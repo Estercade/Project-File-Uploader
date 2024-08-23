@@ -1,0 +1,19 @@
+/* Project File Uploader general styleshee */
+
+/* reset browser defaults begins */
+* {
+    padding: 0.2rem;
+    margin: 0;
+    list-style-type: none;
+    box-sizing: border-box;
+}
+
+/* reset browser defaults ends */
+
+nav {
+    display: flex;
+}
+
+.userControls {
+    margin-left: auto;
+}

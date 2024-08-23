@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/login.css">
     <title><%- title %></title>
 </head>
 
@@ -16,16 +18,16 @@
             <% }) %>
             </ul>
         <% } %>
-        <form action="login" method="POST">
+        <form action="login" method="POST" class="loginForm">
             <div class="loginFormItem">
                 <label for="username">Username: </label>
-                <input id="username" name="username" type="text">
+                <input id="username" name="username" type="text" class="loginFormInput" required>
             </div>
             <div class="loginFormItem">
                 <label for="password">Password: </label>
-                <input id="password" name="password" type="password">
+                <input id="password" name="password" type="password" class="loginFormInput" required>
             </div>
-            <button>Log in</button>
+            <button class="loginFormSubmitButton">Log in</button>
         </form>
 </body>
 

@@ -1,0 +1,23 @@
+/* Sign up page stylesheet */
+
+.signupForm {
+    width: max(350px, 25%);
+    margin: 0 auto;
+    border: 1px solid black;
+    border-radius: 3px;
+    margin: 0.4rem auto;
+    padding: 0.4rem;
+}
+
+.signupFormItem {
+    margin: 0.2rem 0;
+}
+
+.signupFormInput {
+    width: 100%;
+}
+
+.signupFormSubmitButton {
+    margin: 1rem 0 0 0;
+    width: 100%;
+}

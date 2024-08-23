@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/files.css">
+    <title><%- title %></title>
+</head>
+<body>
+    <%- include("partials/navbar") %>
+    <main>
+        <% if (locals.files) { %>
+            <ul class="uploadsList">
+            <% files.forEach((file) => { %>
+                <li class="uploadsListItem">
+                    <p>Name: <%= file.filename %></p>
+                    <p>Size: <%= file.size %></p>
+                    <p>Description:
+                        <% if (file.description) { %>
+                            <%= file.description %>
+                        <% } else { %>
+                            None
+                        <% } %>
+                    </p>
+                    <p class="downloadUploadLinkContainer"><a href="<%= file.url %>" class="downloadUploadLink">Download</a></p>
+                </li>
+            <% }) %>
+            </ul>
+        <% } %>
+    </main>
+</body>
+</html>

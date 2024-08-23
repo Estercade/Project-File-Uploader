@@ -4,25 +4,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/signup.css">
     <title><%- title %></title>
 </head>
 
 <body>
     <%- include("partials/navbar") %>
-    <form action="/signup" method="POST">
+    <% if (locals.errors) { %>
+        <ul>
+        <% errors.forEach((error) => { %>
+            <li><%= error.msg %></li>
+        <% }) %>
+        </ul>
+    <% } %>
+    <form action="/signup" method="POST" class="signupForm">
         <div class="signupFormItem">
             <label for="username">Username: </label>
-            <input id="username" name="username" type="text" required>
+            <input id="username" name="username" type="text" class="signupFormInput" required>
         </div>
         <div class="signupFormItem">
             <label for="password">Password: </label>
-            <input id="password" name="password" type="password" required>
+            <input id="password" name="password" type="password" class="signupFormInput" required>
         </div>
         <div class="signupFormItem">
             <label for="passwordConfirmation">Confirm password: </label>
-            <input id="passwordConfirmation" name="passwordConfirmation" type="password" required>
+            <input id="passwordConfirmation" name="passwordConfirmation" type="password" class="signupFormInput" required>
         </div>
-        <button>Submit</button>
+        <button class="signupFormSubmitButton">Submit</button>
     </form>
 </body>
 

@@ -1,17 +1,15 @@
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
-async function uploadFile(file, body, user) {
+async function uploadFile(file, uploadResult, body, user) {
     try {
-        await prisma.uploads.deleteMany();
         const newFile = await prisma.uploads.create({
             data: {
-                filename: file.filename,
-                originalName: file.originalname,
+                filename: `${uploadResult.public_id}.${uploadResult.format}`,
                 description: body.fileDescription,
-                size: file.size,
-                path: file.path,
-                uploaderId: user.id
+                size: uploadResult.bytes,
+                uploaderId: user.id,
+                url: uploadResult.secure_url
             }
         });
         return newFile;
@@ -22,26 +20,25 @@ async function uploadFile(file, body, user) {
     };
 }
 
-// async function test() {
-//     try {
-//         const user = await prisma.users.findFirst({
-//             where: {
-//                 username: "username"
-//             },
-//             include: {
-//                 uploads: true
-//             }
-//         });
-//         console.log(user);
-//     } catch (err) {
-//         console.error(err.message);
-//     } finally {
-//         await prisma.$disconnect();
-//     };
-// }
-
-// test();
+async function getFilesByUserId(user_id) {
+    try {
+        const files = await prisma.users.findFirst({
+            where: {
+                id: user_id
+            },
+            select: {
+                uploads: true
+            }
+        });
+        return files.uploads;
+    } catch (err) {
+        console.error(err.message);
+    } finally {
+        await prisma.$disconnect();
+    };
+}
 
 module.exports = {
-    uploadFile
+    uploadFile,
+    getFilesByUserId,
 }

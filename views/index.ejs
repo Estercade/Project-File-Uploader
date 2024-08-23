@@ -4,22 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/stylesheet.css">
     <title><%- title %></title>
 </head>
 
 <body>
     <%- include("partials/navbar") %>
-    <% if(locals.user) { %>
-        <p>Hello, <%= user.username %>
-        </p>
-    <% } %>
-    <% if (locals.messages) { %>
-        <ul>
-        <% messages.forEach((message) => { %>
-            <li><%= message %></li>
-        <% }) %>
-        </ul>
-    <% } %>
+    <main>
+        <% if(locals.user) { %>
+            <p>Hello, <%= user.username %>
+            </p>
+        <% } %>
+        <% if (locals.messages) { %>
+            <ul>
+            <% messages.forEach((message) => { %>
+                <li><%= message %></li>
+            <% }) %>
+            </ul>
+        <% } %>
+    </main>
 </body>
 
 </html>

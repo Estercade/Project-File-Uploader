@@ -13,6 +13,7 @@ indexRouter.get("/signup", indexController.getSignupForm);
 indexRouter.post("/signup", authController.createUser);
 indexRouter.get("/upload", indexController.getUploadForm);
 indexRouter.post("/upload", uploadsController.uploadFile);
+indexRouter.get("/files", uploadsController.getUserFiles);
 
 indexRouter.use((err, req, res, next) => {
     if (err) {

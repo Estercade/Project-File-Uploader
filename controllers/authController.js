@@ -46,6 +46,7 @@ createUser = [
 async function authenticateUser(req, res, next) {
     passport.authenticate("local", {
         successRedirect: "/",
+        successMessage: "You have successfully logged in!",
         failureRedirect: "/login",
         failureMessage: true,
     })(req, res, next);

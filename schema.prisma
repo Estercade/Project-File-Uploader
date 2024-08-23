@@ -16,15 +16,14 @@ model Users {
 }
 
 model Uploads {
-    id           String   @unique @default(uuid())
-    filename     String
-    originalName String
-    description  String?
-    size         BigInt
-    path         String
-    uploadedAt   DateTime @default(now())
-    uploader     Users    @relation(fields: [uploaderId], references: [id])
-    uploaderId   String
+    id          String   @unique @default(uuid())
+    filename    String
+    description String?
+    size        BigInt
+    url         String
+    uploadedAt  DateTime @default(now())
+    uploader    Users    @relation(fields: [uploaderId], references: [id])
+    uploaderId  String
 }
 
 model Session {

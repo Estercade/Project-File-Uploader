@@ -1,0 +1,30 @@
+/* Upload page stylesheet */
+
+.uploadForm {
+    width: max(350px, 25%);
+    margin: 0 auto;
+    border: 1px solid black;
+    border-radius: 3px;
+    margin: 0.4rem auto;
+    padding: 0.4rem;
+}
+
+.uploadFormItem {
+    margin: 0.2rem 0;
+}
+
+.downloadUploadLinkContainer {
+    width: 100%;
+    text-align: center;
+}
+
+#fileDescription {
+    resize: vertical;
+    width: 100%;
+    height: 5rem;
+}
+
+.uploadFormSubmitButton {
+    margin: 1rem 0 0 0;
+    width: 100%;
+}
